@@ -26,13 +26,11 @@ Development takes place on "GitHub":github in the "core":github-project project.
 
 Add the package to your composer.json and run composer update.
 
-<pre><code>
-    {
-        "require": {
-            "bravecollective/php-api": "*"
-        }
+<pre><code>{
+    "require": {
+        "bravecollective/php-api": "*"
     }
-</code></pre>
+}</code></pre>
 
 If you would like to make changes and contribute them back to the project, fork the GitHub project, make your changes, and submit a pull request.  This process is beyond the scope of this documentation; for more information, see "GitHub's documentation":github-help.
 
