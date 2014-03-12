@@ -14,4 +14,4 @@ $ecdsa = new ECDSA();
 $keys = $ecdsa->generateEccKeys();
 var_dump($keys);
 
-// Once CORE auth comes back, we continue on step1.php file
+// Once we have EC Keys, we continue on step1.php file and fill in the data
