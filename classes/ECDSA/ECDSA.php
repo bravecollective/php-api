@@ -44,7 +44,7 @@ class ECDSA
 	 *
 	 * @return array
 	 */
-	public function generateEccKeys()
+	public static function generateEccKeys()
 	{
 		// Load up the curve constants
 		$generator = \NISTcurve::generator_256();
