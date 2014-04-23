@@ -14,4 +14,5 @@ $ecdsa = new ECDSA();
 $keys = $ecdsa->generateEccKeys();
 var_dump($keys);
 
-// Once we have EC Keys, we continue on step1.php file and fill in the data
+// Once we have EC Keys, we continue on step1.php file and fill in the data in keys.php
+?>

@@ -8,13 +8,10 @@
 require('vendor/autoload.php');
 define('USE_EXT', 'GMP');
 
-// API Keys
-$application_id = ''; //
-$public_key = '';  //
-$private_key = ''; //
+require('keys.php');
 
 // API Class Setup
-$api = new Brave\API('https://core.bravecollective.net/api', $application_id, $private_key, $public_key);
+$api = new Brave\API('https://core.braveineve.com/api', $application_id, $private_key, $public_key);
 
 // API Call Args
 $info_data = array(
@@ -27,3 +24,4 @@ $result = $api->core->authorize($info_data);
 header("Location: ".$result->location);
 
 // Once CORE auth comes back, we continue on step2.php file
+?>
