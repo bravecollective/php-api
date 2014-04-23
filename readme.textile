@@ -28,7 +28,7 @@ Add the package to your composer.json and run composer update.
 
 <pre><code>{
     "require": {
-        "bravecollective/php-api": "*"
+        "bravecollective/php-api": "dev-master"
     }
 }</code></pre>
 
