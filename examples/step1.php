@@ -4,21 +4,26 @@
 // Step 1 - Create the authorization request
 // ----------------------------------------
 
+require('config.php');
+
 // include composer autoloader
 require('vendor/autoload.php');
 define('USE_EXT', 'GMP');
 
-require('keys.php');
+try {
+    // API Class Setup
+    $api = new Brave\API($cfg_endpoint, $cfg_app_id, $cfg_privkey, $cfg_pubkey);
 
-// API Class Setup
-$api = new Brave\API('https://core.braveineve.com/api', $application_id, $private_key, $public_key);
-
-// API Call Args
-$info_data = array(
-	'success' => 'SUCCESS_URL',
-	'failure' => 'FAILURE_URL'
-);
-$result = $api->core->authorize($info_data);
+    // API Call Args
+    $info_data = array(
+	'success' => $cfg_url_success,
+	'failure' => $cfg_url_failure
+    );
+    $result = $api->core->authorize($info_data);
+} catch (Exception $e) {
+    // fatal error
+    die('internal core error, retry.');
+}
 
 // Redirect back to the auth platform for user authentication approval
 header("Location: ".$result->location);
