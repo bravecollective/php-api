@@ -77,8 +77,8 @@ class gmp_Utils {
     public static function gmp_dechex($dec) {
         if (extension_loaded('gmp') && USE_EXT=='GMP') {
             $hex = gmp_strval(gmp_init($dec, 10), 16);
+	        return ( strlen($hex) %2 != 0) ? '0'.$hex : $hex;
 
-            return $hex;
         } else {
             throw new Exception("PLEASE INSTALL GMP");
         }
