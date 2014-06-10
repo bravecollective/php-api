@@ -9,7 +9,7 @@ namespace Brave\Auth;
 class CoreAuthHandler implements \Requests_Auth
 {
 
-	private $debug = true;
+	private $debug = false;
 
     /**
      * Constructor
