@@ -29,5 +29,5 @@
     define('USE_EXT', 'GMP');
     require 'vendor/autoload.php';
 
-6. Key handling
-    see keys.php
+6. Configuration
+    Edit config.php
