@@ -48,7 +48,7 @@ class CoreAuthHandler implements \Requests_Auth
 	{
 		// generate a date string
 		$date = new \DateTime('NOW', new \DateTimeZone("GMT"));
-		$headers['Date'] = $date->format("D, d M Y H:i:s e");
+		$headers['Date'] = $date->format("D, d M Y H:i:s \G\M\T");
 
 		// build up the data to be signed
 		$request_data = $headers['Date']."\n".$url."\n";
