@@ -26,7 +26,7 @@
     $ composer install
 
 5. Use php-api
-    define('USE_EXT', 'GMP');
+    define('USE_MATH_EXT', 'GMP');
     require 'vendor/autoload.php';
 
 6. Configuration

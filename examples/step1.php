@@ -8,7 +8,7 @@ require('config.php');
 
 // include composer autoloader
 require('vendor/autoload.php');
-define('USE_EXT', 'GMP');
+define('USE_MATH_EXT', 'GMP');
 
 try {
     // API Class Setup

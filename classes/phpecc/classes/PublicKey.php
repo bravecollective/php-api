@@ -44,11 +44,11 @@ class PublicKey implements PublicKeyInterface {
             throw new ErrorException("Generator Point order is bad.");
         }
 
-        if (extension_loaded('gmp') && USE_EXT=='GMP') {
+        if (extension_loaded('gmp') && USE_MATH_EXT=='GMP') {
             if (gmp_cmp($point->getX(), 0) < 0 || gmp_cmp($n, $point->getX()) <= 0 || gmp_cmp($point->getY(), 0) < 0 || gmp_cmp($n, $point->getY()) <= 0) {
                 throw new ErrorException("Generator Point has x and y out of range.");
             }
-        } else if (extension_loaded('bcmath') && USE_EXT=='BCMATH') {
+        } else if (extension_loaded('bcmath') && USE_MATH_EXT=='BCMATH') {
             if (bccomp($point->getX(), 0) == -1 || bccomp($n, $point->getX()) != 1 || bccomp($point->getY(), 0) == -1 || bccomp($n, $point->getY()) != 1) {
                 throw new ErrorException("Generator Point has x and y out of range.");
             }
@@ -58,7 +58,7 @@ class PublicKey implements PublicKeyInterface {
     }
 
     public function verifies($hash, Signature $signature) {
-        if (extension_loaded('gmp') && USE_EXT=='GMP') {
+        if (extension_loaded('gmp') && USE_MATH_EXT=='GMP') {
             $G = $this->generator;
             $n = $this->generator->getOrder();
             $point = $this->point;
@@ -82,7 +82,7 @@ class PublicKey implements PublicKeyInterface {
             else {
                 return false;
             }
-        } else if (extension_loaded('bcmath') && USE_EXT=='BCMATH') {
+        } else if (extension_loaded('bcmath') && USE_MATH_EXT=='BCMATH') {
             $G = $this->generator;
             $n = $this->generator->getOrder();
             $point = $this->point;

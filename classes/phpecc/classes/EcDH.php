@@ -49,7 +49,7 @@ class EcDH implements EcDHInterface {
     }
 
     public function getPublicPoint() {
-        if (extension_loaded('gmp') && USE_EXT == 'GMP') {
+        if (extension_loaded('gmp') && USE_MATH_EXT == 'GMP') {
             //alice selects a random number between 1 and the order of the generator point(private)
             $n = $this->generator->getOrder();
 
@@ -59,7 +59,7 @@ class EcDH implements EcDHInterface {
             $this->pubPoint = Point::mul($this->secret, $this->generator);
 
             return $this->pubPoint;
-        } else if (extension_loaded('bcmath') && USE_EXT == 'BCMATH') {
+        } else if (extension_loaded('bcmath') && USE_MATH_EXT == 'BCMATH') {
             //alice selects a random number between 1 and the order of the generator point(private)
             $n = $this->generator->getOrder();
 

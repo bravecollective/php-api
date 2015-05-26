@@ -6,7 +6,7 @@
 
 // include composer autoloader
 require('vendor/autoload.php');
-define('USE_EXT', 'GMP');
+define('USE_MATH_EXT', 'GMP');
 
 // Generate EC Keys
 $ecdsa = new ECDSA();

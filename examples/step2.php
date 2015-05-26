@@ -8,7 +8,7 @@ require('config.php');
 
 // include composer autoloader
 require('vendor/autoload.php');
-define('USE_EXT', 'GMP');
+define('USE_MATH_EXT', 'GMP');
 
 // Get Token from core. DO THIS WITH PROPER SECURITY WHEN DEVELOPING REAL APPLICATIONS
 $token = preg_replace("/[^A-Za-z0-9]/", '', $_GET['token']);

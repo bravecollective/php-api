@@ -64,7 +64,7 @@ class Point implements PointInterface {
         }
 
         public static function cmp($p1, $p2) {
-            if (extension_loaded('gmp') && USE_EXT=='GMP') {
+            if (extension_loaded('gmp') && USE_MATH_EXT=='GMP') {
                 if (!($p1 instanceof Point)) {
                     if (($p2 instanceof Point))
                         return 1;
@@ -84,7 +84,7 @@ class Point implements PointInterface {
                 } else {
                     return 1;
                 }
-            } else if (extension_loaded('bcmath') && USE_EXT=='BCMATH') {
+            } else if (extension_loaded('bcmath') && USE_MATH_EXT=='BCMATH') {
                 if (!($p1 instanceof Point)) {
                     if (($p2 instanceof Point))
                         return 1;
@@ -122,7 +122,7 @@ class Point implements PointInterface {
                 return self::$infinity;
             }
 
-            if (extension_loaded('gmp') && USE_EXT=='GMP') {
+            if (extension_loaded('gmp') && USE_MATH_EXT=='GMP') {
 
 
                 if (CurveFp::cmp($p1->curve, $p2->curve) == 0) {
@@ -152,7 +152,7 @@ class Point implements PointInterface {
                 } else {
                     throw new ErrorException("The Elliptic Curves do not match.");
                 }
-            } else if (extension_loaded('bcmath') && USE_EXT=='BCMATH') {
+            } else if (extension_loaded('bcmath') && USE_MATH_EXT=='BCMATH') {
 
                 if (CurveFp::cmp($p1->curve, $p2->curve) == 0) {
                     if (bcmod(bccomp($p1->x, $p2->x), $p1->curve->getPrime()) == 0) {
@@ -191,7 +191,7 @@ class Point implements PointInterface {
         }
 
         public static function mul($x2, Point $p1) {
-            if (extension_loaded('gmp') && USE_EXT=='GMP') {
+            if (extension_loaded('gmp') && USE_MATH_EXT=='GMP') {
                 $e = $x2;
 
                 if (self::cmp($p1, self::$infinity) == 0) {
@@ -234,7 +234,7 @@ class Point implements PointInterface {
                     }
                     return $result;
                 }
-            } else if (extension_loaded('bcmath') && USE_EXT=='BCMATH') {
+            } else if (extension_loaded('bcmath') && USE_MATH_EXT=='BCMATH') {
                 $e = $x2;
 
                 if (self::cmp($p1, self::$infinity) == 0) {
@@ -281,7 +281,7 @@ class Point implements PointInterface {
         }
 
         public static function leftmost_bit($x) {
-            if (extension_loaded('gmp') && USE_EXT=='GMP') {
+            if (extension_loaded('gmp') && USE_MATH_EXT=='GMP') {
                 if (gmp_cmp($x, 0) > 0) {
                     $result = 1;
                     while (gmp_cmp($result, $x) < 0 || gmp_cmp($result, $x) == 0) {
@@ -289,7 +289,7 @@ class Point implements PointInterface {
                     }
                     return gmp_strval(gmp_div($result, 2));
                 }
-            } else if (extension_loaded('bcmath') && USE_EXT=='BCMATH') {
+            } else if (extension_loaded('bcmath') && USE_MATH_EXT=='BCMATH') {
                 if (bccomp($x, 0) == 1) {
                     $result = 1;
                     while (bccomp($result, $x) == -1 || bccomp($result, $x) == 0) {
@@ -315,7 +315,7 @@ class Point implements PointInterface {
         public static function double(Point $p1) {
 
 
-            if (extension_loaded('gmp') && USE_EXT=='GMP') {
+            if (extension_loaded('gmp') && USE_MATH_EXT=='GMP') {
 
                 $p = $p1->curve->getPrime();
                 $a = $p1->curve->getA();
@@ -336,7 +336,7 @@ class Point implements PointInterface {
                 $p3 = new Point($p1->curve, $x3, $y3);
 
                 return $p3;
-            }else if (extension_loaded('bcmath') && USE_EXT=='BCMATH') {
+            }else if (extension_loaded('bcmath') && USE_MATH_EXT=='BCMATH') {
 
                 $p = $p1->curve->getPrime();
                 $a = $p1->curve->getA();

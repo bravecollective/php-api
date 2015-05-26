@@ -36,7 +36,7 @@ class PrivateKey implements PrivateKeyInterface {
     }
 
     public function sign($hash, $random_k) {
-        if (extension_loaded('gmp') && USE_EXT=='GMP') {
+        if (extension_loaded('gmp') && USE_MATH_EXT=='GMP') {
             $G = $this->public_key->getGenerator();
             $n = $G->getOrder();
             $k = gmp_Utils::gmp_mod2($random_k, $n);
@@ -53,7 +53,7 @@ class PrivateKey implements PrivateKeyInterface {
             }
 
             return new Signature($r, $s);
-        } else if (extension_loaded('bcmath') && USE_EXT=='BCMATH') {
+        } else if (extension_loaded('bcmath') && USE_MATH_EXT=='BCMATH') {
             $G = $this->public_key->getGenerator();
             $n = $G->getOrder();
             $k = bcmod($random_k, $n);
@@ -76,7 +76,7 @@ class PrivateKey implements PrivateKeyInterface {
     }
 
     public static function int_to_string($x) {
-        if (extension_loaded('gmp') && USE_EXT=='GMP') {
+        if (extension_loaded('gmp') && USE_MATH_EXT=='GMP') {
             if (gmp_cmp($x, 0) >= 0) {
                 if (gmp_cmp($x, 0) == 0)
                     return chr(0);
@@ -92,7 +92,7 @@ class PrivateKey implements PrivateKeyInterface {
                 }
                 return $result;
             }
-        } else if (extension_loaded('bcmath') && USE_EXT=='BCMATH') {
+        } else if (extension_loaded('bcmath') && USE_MATH_EXT=='BCMATH') {
             if (bccomp($x, 0) != -1) {
                 if (bccomp($x, 0) == 0)
                     return chr(0);
@@ -114,14 +114,14 @@ class PrivateKey implements PrivateKeyInterface {
     }
 
     public static function string_to_int($s) {
-        if (extension_loaded('gmp') && USE_EXT=='GMP') {
+        if (extension_loaded('gmp') && USE_MATH_EXT=='GMP') {
             $result = 0;
             for ($c = 0; $c < strlen($s); $c++) {
 
                 $result = gmp_add(gmp_mul(256, $result), ord($s[$c]));
             }
             return $result;
-        } else if (extension_loaded('bcmath') && USE_EXT=='BCMATH') {
+        } else if (extension_loaded('bcmath') && USE_MATH_EXT=='BCMATH') {
             $result = 0;
             for ($c = 0; $c < strlen($s); $c++) {
 
@@ -139,7 +139,7 @@ class PrivateKey implements PrivateKeyInterface {
     }
 
     public static function point_is_valid(Point $generator, $x, $y) {
-        if (extension_loaded('gmp') && USE_EXT=='GMP') {
+        if (extension_loaded('gmp') && USE_MATH_EXT=='GMP') {
             $n = $generator->getOrder();
             $curve = $generator->getCurve();
 
@@ -162,7 +162,7 @@ class PrivateKey implements PrivateKeyInterface {
                 return false;
             }
             return true;
-        } else if (extension_loaded('bcmath') && USE_EXT=='BCMATH') {
+        } else if (extension_loaded('bcmath') && USE_MATH_EXT=='BCMATH') {
             $n = $generator->getOrder();
             $curve = $generator->getCurve();
 

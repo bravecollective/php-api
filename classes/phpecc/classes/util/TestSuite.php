@@ -33,7 +33,7 @@ class TestSuite {
     private $NUM_PRIMES = 10;
 
     public function __construct($verbose = false) {
-        if (extension_loaded('gmp') && USE_EXT == 'GMP') {
+        if (extension_loaded('gmp') && USE_MATH_EXT == 'GMP') {
             $start_time = microtime(true);
             echo "GMP PHP extension was found and is preferred for performance reasons.<br /><b>Initiating tests.</b><br />\n";
             if (!$verbose) {
@@ -75,7 +75,7 @@ class TestSuite {
             $time_res = $end_time - $start_time;
 
             echo "<br /><h3>TEST SUITE TOTAL TIME : " . $time_res . " seconds. </h3><br />";
-        } else if (extension_loaded('bcmath') && USE_EXT == 'BCMATH') {
+        } else if (extension_loaded('bcmath') && USE_MATH_EXT == 'BCMATH') {
             $start_time = microtime(true);
             echo "<b>BCMATH PHP extension</b> was found performance will tend to <b>SEVERELY LACK USABILITY</b>. Consider installing GMP. <br /><b>Initiating tests.</b><br />\n";
             if (!$verbose) {
@@ -1109,7 +1109,7 @@ class TestSuite {
 
     //generic static methods for curve arithemetic testing
     public static function test_add(CurveFp $c, $x1, $y1, $x2, $y2, $x3, $y3, $verbose = false) {
-        if (extension_loaded('gmp') && USE_EXT == 'GMP') {
+        if (extension_loaded('gmp') && USE_MATH_EXT == 'GMP') {
             // expect that on curve c, (x1, y1) + (x2, y2) = (x3, y3)
             $p1 = new Point($c, $x1, $y1);
             $p2 = new Point($c, $x2, $y2);
@@ -1124,7 +1124,7 @@ class TestSuite {
                     echo " ADD TEST SUCCESSFUL<br /><br /><br />";
                 flush();
             }
-        } else if (extension_loaded('bcmath') && USE_EXT == 'BCMATH') {
+        } else if (extension_loaded('bcmath') && USE_MATH_EXT == 'BCMATH') {
             // expect that on curve c, (x1, y1) + (x2, y2) = (x3, y3)
             $p1 = new Point($c, $x1, $y1);
             $p2 = new Point($c, $x2, $y2);
@@ -1143,7 +1143,7 @@ class TestSuite {
     }
 
     public static function test_double(CurveFp $c, $x1, $y1, $x3, $y3, $verbose = false) {
-        if (extension_loaded('gmp') && USE_EXT == 'GMP') {
+        if (extension_loaded('gmp') && USE_MATH_EXT == 'GMP') {
             // expect that on curve c, (x1, y1) + (x2, y2) = (x3, y3)
             $p1 = new Point($c, $x1, $y1);
             $p3 = Point::double($p1);
@@ -1159,7 +1159,7 @@ class TestSuite {
                     echo " DOUBLE TEST SUCCESSFUL<br /><br /><br />";
                 flush();
             }
-        } else if (extension_loaded('bcmath') && USE_EXT == 'BCMATH') {
+        } else if (extension_loaded('bcmath') && USE_MATH_EXT == 'BCMATH') {
             // expect that on curve c, (x1, y1) + (x2, y2) = (x3, y3)
             $p1 = new Point($c, $x1, $y1);
             $p3 = Point::double($p1);
@@ -1179,7 +1179,7 @@ class TestSuite {
     }
 
     public static function test_multiply(CurveFp $c, $x1, $y1, $m, $x3, $y3, $verbose = false) {
-        if (extension_loaded('gmp') && USE_EXT == 'GMP') {
+        if (extension_loaded('gmp') && USE_MATH_EXT == 'GMP') {
             // expect that on curve c, m * (x2, y2) = (x3, y3)
             $p1 = new Point($c, $x1, $y1);
             $p3 = Point::mul($m, $p1);
@@ -1205,7 +1205,7 @@ class TestSuite {
                     flush();
                 }
             }
-        } else if (extension_loaded('bcmath') && USE_EXT == 'BCMATH') {
+        } else if (extension_loaded('bcmath') && USE_MATH_EXT == 'BCMATH') {
             // expect that on curve c, m * (x2, y2) = (x3, y3)
             $p1 = new Point($c, $x1, $y1);
             $p3 = Point::mul($m, $p1);

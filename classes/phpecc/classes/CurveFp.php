@@ -45,7 +45,7 @@ class CurveFp implements CurveFpInterface {
     public function contains($x, $y) {
         $eq_zero = null;
 
-        if (extension_loaded('gmp') && USE_EXT=='GMP') {
+        if (extension_loaded('gmp') && USE_MATH_EXT=='GMP') {
 
             $eq_zero = gmp_cmp(gmp_Utils::gmp_mod2(gmp_sub(gmp_pow($y, 2), gmp_add(gmp_add(gmp_pow($x, 3), gmp_mul($this->a, $x)), $this->b)), $this->prime), 0);
 
@@ -55,7 +55,7 @@ class CurveFp implements CurveFpInterface {
             } else {
                 return false;
             }
-        } else if (extension_loaded('bcmath') && USE_EXT=='BCMATH') {
+        } else if (extension_loaded('bcmath') && USE_MATH_EXT=='BCMATH') {
 
             $eq_zero = bccomp(bcmod(bcsub(bcpow($y, 2), bcadd(bcadd(bcpow($x, 3), bcmul($this->a, $x)), $this->b)), $this->prime), 0);
             if ($eq_zero == 0) {
@@ -83,14 +83,14 @@ class CurveFp implements CurveFpInterface {
     public static function cmp(CurveFp $cp1, CurveFp $cp2) {
         $same = null;
 
-        if (extension_loaded('gmp') && USE_EXT=='GMP') {
+        if (extension_loaded('gmp') && USE_MATH_EXT=='GMP') {
 
             if (gmp_cmp($cp1->a, $cp2->a) == 0 && gmp_cmp($cp1->b, $cp2->b) == 0 && gmp_cmp($cp1->prime, $cp2->prime) == 0) {
                 return 0;
             } else {
                 return 1;
             }
-        } else if (extension_loaded('bcmath') && USE_EXT=='BCMATH') {
+        } else if (extension_loaded('bcmath') && USE_MATH_EXT=='BCMATH') {
             if (bccomp($cp1->a, $cp2->a) == 0 && bccomp($cp1->b, $cp2->b) == 0 && bccomp($cp1->prime, $cp2->prime) == 0) {
                 return 0;
             } else {

@@ -52,12 +52,12 @@ $seconds = 7200;
 set_time_limit($seconds);
 
 
-//if(!defined('USE_EXT')) define ('USE_EXT', 'BCMATH');
+//if(!defined('USE_MATH_EXT')) define ('USE_MATH_EXT', 'BCMATH');
 
-if(extension_loaded('gmp') && !defined('USE_EXT')){
-    define ('USE_EXT', 'GMP');
-}else if(extension_loaded('bcmath') && !defined('USE_EXT')){
-    define ('USE_EXT', 'BCMATH');
+if(extension_loaded('gmp') && !defined('USE_MATH_EXT')){
+    define ('USE_MATH_EXT', 'GMP');
+}else if(extension_loaded('bcmath') && !defined('USE_MATH_EXT')){
+    define ('USE_MATH_EXT', 'BCMATH');
 }
 //verbosity for test methods
 $verbose = false;
