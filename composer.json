@@ -8,15 +8,9 @@
   ],
   "license": "MIT",
   "require": {
-    "mdanter/ecc": "dev-master",
+    "mglinski/ecc": "0.3.2",
     "rmccue/requests": ">=1.0"
   },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/mglinski/phpecc.git"
-    }
-  ],
   "autoload": {
     "classmap": [
       "classes",
