@@ -28,7 +28,7 @@ Add the package to your composer.json and run composer update.
 
 <pre><code>{
     "require": {
-        "bravecollective/php-api": "dev-master"
+        "bravecollective/php-api": "1.0.*"
     }
 }</code></pre>
 
@@ -44,18 +44,11 @@ h2(#key). %3.% Key Management
 
 TODO
 
-
 h2(#client). %4.% Client Bindings
 
 TODO
 
-
-h2(#license). %4.% License
-
-Brave Core Service API Bindings has been released under the MIT Open Source license.  All contributors agree to transfer ownership of their code to Matthew Glinski for release under this license.  (This is to mitigate issues in the future.)
-
-
-h3(#license-mit). %4.1.% The MIT License
+h2(#license-mit). %4.% License
 
 Copyright (C) 2014 Matthew Glinski and contributors.
 
