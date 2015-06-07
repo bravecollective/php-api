@@ -52,11 +52,29 @@ mv composer.phar /usr/local/bin/composer
 composer install
 ```
 
-## 6. Configuration
+## 7. Make a keypair
 
-Copy config.php into your project and edit it with your keys and other information
+```bash
+php step0.php
+```
 
-## 7. Use php-api
+will yeild:
+
+```txt
+$ php step0.php
+array(2) {
+  ["public"]=>
+  string(128) "c7ab29a68617ce1bf5f48443c39e7fc1dfb483c8dd01b29ec266d7c44ab90836f1ae4d0c35506f1c787c153d5fdf0419854778cef0fe63aeee8f4d2a55750a31"
+  ["private"]=>
+  string(64) "76be4a32f63d19c3216952ad9149321816a1e9ef62e13bce254ec5c474344cda"
+}
+```
+
+## 7. Configuration
+
+Copy config.php into your project and edit it with the keys you just generated and other information requested
+
+## 8. Use php-api
 
 ```php
 <?php
