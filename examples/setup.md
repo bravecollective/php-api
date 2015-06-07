@@ -1,4 +1,4 @@
-# How ToL Use PHP-API in your Projects
+# How to use PHP-API in your projects
 
 ## 1. Install GMP for php
 
