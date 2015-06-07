@@ -4,17 +4,14 @@
 	"keywords": ["eve-online", "auth", "brave"],
 	"license": "MIT",
 	"require": {
-		"mdanter/ecc": "0.3.*",
+		"mdanter/ecc": "0.3.0",
 		"rmccue/requests": ">=1.0"
 	},
 	"autoload": {
 		"classmap": [
             "classes",
             "classes/Brave",
-            "classes/Brave/Auth",
-            "classes/ECDSA",
-			"classes/phpecc/classes/util",
-			"classes/phpecc/classes/interface"
+            "classes/Brave/Auth"
 		]
 	}
 }
