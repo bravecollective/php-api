@@ -58,7 +58,7 @@ composer install
 php step0.php
 ```
 
-will yeild:
+will yeild something like:
 
 ```txt
 $ php step0.php
@@ -69,6 +69,7 @@ array(2) {
   string(64) "76be4a32f63d19c3216952ad9149321816a1e9ef62e13bce254ec5c474344cda"
 }
 ```
+! DO NOT USE THE ABOVE KEYS IN YOUR APPLICATION, GENERATE YOUR OWN !
 
 ## 7. Configuration
 
