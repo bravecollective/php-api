@@ -4,6 +4,7 @@
 	"keywords": ["eve-online", "auth", "brave"],
 	"license": "MIT",
 	"require": {
+		"mdanter/ecc": "0.3.*",
 		"rmccue/requests": ">=1.0"
 	},
 	"autoload": {

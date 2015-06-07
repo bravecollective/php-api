@@ -23,9 +23,7 @@ $cfg_pubkey = '';
 $cfg_privkey = '';
 
 // URL to redirect on successfull core auth
-$cfg_url_success = 'http://example.com/step2.php';
+$cfg_url_success = 'http://crypto.dev:8000/step2.php';
 
 // URL to redirect on failed core auth
-$cfg_url_failure = 'http://example.com/fail.php';
-
-?>
+$cfg_url_failure = 'http://crypto.dev:8000/fail.php';

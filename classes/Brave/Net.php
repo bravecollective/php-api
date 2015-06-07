@@ -28,22 +28,23 @@ Class Net{
     /**
      * @var array
      */
-    private $options = array();
+    private $options = [];
 
-    /**
-     * @param $token
-     * @param $private_key
-     * @param $public_key
-     */
-    function __construct($identity, $private_key, $public_key)
+	/**
+	 * @param      $identity
+	 * @param      $private_key
+	 * @param      $public_key
+	 * @param bool $debug
+	 */
+	public function __construct($identity, $private_key, $public_key, $debug = false)
     {
         $this->identity = $identity;
         $this->private_key = $private_key;
         $this->public_key = $public_key;
 
-        $this->options = array(
-            'auth' => new CoreAuthHandler($identity, $private_key, $public_key)
-        );
+        $this->options = [
+            'auth' => new CoreAuthHandler($identity, $private_key, $public_key, $debug)
+        ];
     }
 
     /**
@@ -51,9 +52,9 @@ Class Net{
      * @param array $data
      * @return mixed
      */
-    public function post($url, $data = array())
+    public function post($url, $data = [])
     {
-	    $response = \Requests::post($url, array(), $data, $this->options);
+	    $response = \Requests::post($url, [], $data, $this->options);
 
         return $response;
     }
